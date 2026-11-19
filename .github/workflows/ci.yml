@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    name: Package skill
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - name: Build release ZIP
+        env:
+          ARCHIVE: ${{ runner.temp }}/repo-launch-kit.zip
+        run: |
+          git archive --format=zip --prefix=repo-launch-kit/ -o "$ARCHIVE" HEAD \
+            LICENSE SKILL.md agents assets references
+          test -s "$ARCHIVE"
