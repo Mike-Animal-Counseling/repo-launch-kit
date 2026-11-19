@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repo Launch Kit"
+  short_description: "Bootstrap repository standards and GitHub CI"
+  default_prompt: "Use $repo-launch-kit to set up this repository for its first pull request."
