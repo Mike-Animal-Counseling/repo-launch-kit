@@ -25,7 +25,7 @@
 - [x] 在旧仓隔离快照完成两次接手调用。第二次无额外 diff，保留现有规范、任务清单和 CI。空仓、未知技术栈、monorepo 和并行任务更新的本地验证已记录。
 - [x] 从候选 ZIP 干净安装并调用开仓和 PR 维护。包检查及生成的 monorepo CI 命令已在本机执行。
 - [x] 两条真实验收 PR 依次通过 GitHub Actions 并合并。第二条由独立会话从合并后的主分支接手。
-- [ ] 发布 `v0.1` 并从公开 ZIP 验证干净安装、开仓和 PR 维护。
+- [x] 发布 `v0.1`，从公开 ZIP 验证干净安装、开仓和 PR 维护。生成的 npm 工作流在 GitHub Actions 上完成安装和测试。
 
 [双 PR 草稿及证据](examples/pull-requests.md) · [发布验证记录](RELEASING.md)
 

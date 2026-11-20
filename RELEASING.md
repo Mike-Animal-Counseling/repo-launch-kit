@@ -20,7 +20,11 @@ Exercise setup and PR maintenance in fresh sessions using the archive at project
 | Release package | `actionlint` and the package job's Bash commands passed against a committed archive. The installed skill's relative links resolved. The check rejected an archive missing a referenced template. |
 | Archive replacement and uninstall | Replacing the installed folder with the earlier local archive and then removing it left repository tasks intact. |
 
-The public release and clean installation are tracked in R02.
+## Public v0.1 verification
+
+The ZIP downloaded from the [v0.1 release](https://github.com/Mike-Animal-Counseling/repo-launch-kit/releases/tag/v0.1) matched the published SHA-256 digest. Fresh Codex CLI sessions on Windows used the installed skill to generate the repository setup and complete task D01 through PR maintenance. The PR draft listed D01 under `任务变化`, and the task file recorded the passing mixed-case regression test.
+
+The [npm workspace example](https://github.com/Mike-Animal-Counseling/repo-launch-kit/tree/examples/npm-workspace-ci) retains the generated workflow and task list. GitHub Actions ran `npm ci` and `npm test` on Node 22. All three workspace tests passed. [Passing example run](https://github.com/Mike-Animal-Counseling/repo-launch-kit/actions/runs/44687533394)
 
 ## Hosted handoff
 
