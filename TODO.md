@@ -2,8 +2,9 @@
 
 ## In progress
 
-- **D01**: Lowercase mixed-case slugs while retaining whitespace trimming. Acceptance: add a mixed-case regression test and pass `npm test` from the repository root.
 
 ## Up next
 
 ## Done
+
+- **D01**: Lowercase mixed-case slugs while retaining whitespace trimming. Verified: mixed-case regression test added; `npm test` passed from the repository root.

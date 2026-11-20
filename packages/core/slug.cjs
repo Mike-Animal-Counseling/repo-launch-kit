@@ -1,1 +1,1 @@
-module.exports = value => value.trim();
+module.exports = value => value.trim().toLowerCase();
