@@ -1,0 +1,1 @@
+{"name":"launch-kit-workspace-example","private":true,"workspaces":["packages/*"],"scripts":{"test":"npm run test --workspaces"}}
