@@ -18,4 +18,15 @@
 - 生成的 CI 复用真实检查，示例仓库实跑。PR workflow 使用最小权限，fork PR 无发布凭据。Skill 可回装旧版本，目标仓库用 Git 回退。
 - 第一批把 TODO 模板、PR 任务变化和 Skill 的维护入口做成可验证的链路。
 
+## v0.1 进度
+
+- [x] 完成一个可安装的 Skill、三份 Markdown 模板、MIT 许可证、安装和卸载说明及版本记录。
+- [x] 完成两条本地 PR 演练。第一条建立流程并留下 R01。独立 Agent 在新会话中仅凭仓库完成 R01，附验证证据。
+- [x] 在旧仓隔离快照完成两次接手调用。第二次无额外 diff，保留现有规范、任务清单和 CI。空仓、未知技术栈、monorepo 和并行任务更新的本地验证已记录。
+- [x] 从候选 ZIP 干净安装并调用开仓和 PR 维护。包检查及生成的 monorepo CI 命令已在本机执行。
+- [x] 两条真实验收 PR 依次通过 GitHub Actions 并合并。第二条由独立会话从合并后的主分支接手。
+- [ ] 发布 `v0.1` 并从公开 ZIP 验证干净安装、开仓和 PR 维护。
+
+[双 PR 草稿及证据](examples/pull-requests.md) · [发布验证记录](RELEASING.md)
+
 参考：[Agent Skills 规范](https://agentskills.io/specification) · [OpenSpec](https://github.com/Fission-AI/OpenSpec#see-it-in-action) · [GitHub Actions 安全实践](https://docs.github.com/en/actions/reference/security/secure-use)
