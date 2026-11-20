@@ -2,9 +2,9 @@
 
 ## In progress
 
-## Up next
+- [ ] R02 — Publish `v0.1` from the checked default branch. Then install the public ZIP in fresh sessions, exercise setup and PR maintenance, and run the generated npm workflow on GitHub Actions.
 
-- [ ] R02 — Publish the GitHub acceptance PRs and `v0.1` after the PR handoff and hosted checks pass. Install the downloaded asset in a new session and exercise setup and PR maintenance.
+## Up next
 
 ## Done
 
