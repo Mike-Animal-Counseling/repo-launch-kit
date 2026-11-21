@@ -12,7 +12,7 @@ The [v0.1 ZIP](https://github.com/Mike-Animal-Counseling/repo-launch-kit/release
 
 ## Install from a source checkout
 
-From the target Git repository, use a GitHub CLI version with `gh skill install` to copy the skill out of your Repo Launch Kit checkout.
+From the target Git repository, use a GitHub CLI version with `gh skill install` to copy the skill out of your Repo Launch Kit checkout. For a new directory whose Git repository has yet to be initialized, use a user-scope install from an existing checkout or copy the folder manually.
 
 ```sh
 gh skill install "/path/to/repo-launch-kit" repo-launch-kit --from-local --agent codex --scope project

@@ -1,4 +1,4 @@
 interface:
   display_name: "Repo Launch Kit"
-  short_description: "Set up repositories and hand off work through PRs"
-  default_prompt: "Use $repo-launch-kit to set up this repository or update the task handoff for this pull request."
+  short_description: "Scaffold projects and set up PR handoffs"
+  default_prompt: "Use $repo-launch-kit to scaffold this project and verify its first runnable check."

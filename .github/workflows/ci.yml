@@ -33,7 +33,7 @@ jobs:
           git show HEAD:LICENSE | cmp - "$skill_dir/LICENSE"
           git show HEAD:.github/pull_request_template.md | cmp - "$skill_dir/assets/pull_request_template.md"
 
-          for path in assets/AGENTS.md assets/TODO.md assets/pull_request_template.md references/github-ci.md; do
+          for path in assets/AGENTS.md assets/TODO.md assets/pull_request_template.md references/project-skeleton.md references/github-ci.md; do
             if ! test -f "$skill_dir/$path" || ! grep -Fq -- "]($path)" "$skill_dir/SKILL.md"; then
               printf 'Installed SKILL.md must link to packaged file %s\n' "$path" >&2
               exit 1

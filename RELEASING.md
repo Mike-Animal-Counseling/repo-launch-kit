@@ -12,7 +12,20 @@ git archive --format=zip --prefix=repo-launch-kit/ -o repo-launch-kit-dev.zip HE
 
 The archive should contain `repo-launch-kit/SKILL.md` alongside the templates, CI reference, Codex metadata, and MIT license. Install the complete folder following the [installation guide](docs/install.md).
 
-Exercise setup and PR maintenance in fresh sessions using the archive at project scope. Verify that adoption still produces an empty diff on a second run with the same inputs. Check the existing repository's task source, conventions, CI commands, and check names against its starting revision.
+Exercise launch, adoption, and PR maintenance in fresh sessions using the archive at project scope. Start one project before choosing a stack and another with a runtime and a runnable first check. Verify the generated project from its README and run the commands in its CI configuration. For adoption, compare the existing task source, dirty files, conventions, and check names with their starting state. Reapply the same inputs and check tracked and untracked files for changes.
+
+## v0.2 skeleton candidate
+
+Independent agents used the candidate archive in isolated projects. The checks below ran locally.
+
+| Scenario | Verified result |
+| --- | --- |
+| No stack selected | Initialized the requested directory and generated the README, Git ignore rules, contributor instructions, task list, and GitHub PR template. The task list kept the stack and first runnable check pending. The same inputs produced no additional differences. |
+| Node.js CLI | The generated code printed `hello-world` from the README command. `npm ci`, all three CLI tests, and `actionlint` passed on Node 24. The second pass kept the same 11 Git-visible files and contents. |
+| Python library | The public API imported from the checkout on Python 3.12. It returned the expected result, all four standard-library tests passed, and `actionlint` accepted the workflow. |
+| Existing GitHub project | Kept the dirty README, `ROADMAP.md`, and the existing workflow and check name. Reapplying the same adoption inputs produced no additional changes. |
+| Nested package | Kept the new files within the requested package. The existing parent repository and its CI stayed intact. |
+| PR draft | Kept the existing English `Task changes` section and its no-change wording. The task source remained untouched. |
 
 ## v0.1-rc.1 results
 
