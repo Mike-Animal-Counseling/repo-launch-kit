@@ -17,19 +17,21 @@ jobs:
         with:
           persist-credentials: false
       - name: Build and verify release ZIP
+        shell: bash
         env:
           ARCHIVE: ${{ runner.temp }}/repo-launch-kit.zip
         run: |
-          git archive --format=zip --prefix=repo-launch-kit/ -o "$ARCHIVE" HEAD \
-            LICENSE SKILL.md agents assets references
+          git archive --format=zip --prefix=repo-launch-kit/ -o "$ARCHIVE" HEAD:skills/repo-launch-kit
           test -s "$ARCHIVE"
 
           install_dir=$(mktemp -d "$(dirname "$ARCHIVE")/repo-launch-kit-install.XXXXXX")
+          trap 'rm -rf -- "$install_dir"' EXIT
           unzip -q "$ARCHIVE" -d "$install_dir"
           skill_dir="$install_dir/repo-launch-kit"
           test -f "$skill_dir/SKILL.md"
-          test -f "$skill_dir/LICENSE"
           test -f "$skill_dir/agents/openai.yaml"
+          git show HEAD:LICENSE | cmp - "$skill_dir/LICENSE"
+          git show HEAD:.github/pull_request_template.md | cmp - "$skill_dir/assets/pull_request_template.md"
 
           for path in assets/AGENTS.md assets/TODO.md assets/pull_request_template.md references/github-ci.md; do
             if ! test -f "$skill_dir/$path" || ! grep -Fq -- "]($path)" "$skill_dir/SKILL.md"; then

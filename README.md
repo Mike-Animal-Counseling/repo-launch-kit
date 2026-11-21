@@ -1,33 +1,49 @@
 # Repo Launch Kit
 
-An installable skill for setting up a GitHub repository, adopting an existing project, and handing off work through ordinary pull requests. It uses Markdown and the checks your repository already runs.
+[![CI](https://github.com/Mike-Animal-Counseling/repo-launch-kit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Mike-Animal-Counseling/repo-launch-kit/actions/workflows/ci.yml)
+[Latest release](https://github.com/Mike-Animal-Counseling/repo-launch-kit/releases/latest)
 
-| Workflow | What it does |
-| --- | --- |
-| Set up a new repo | Adds repository instructions, a small task list, and a PR template. Configures CI when it can verify a check command. |
-| Adopt an existing repo | Reuses the task source, contributor instructions, PR templates, and CI check names. Fills gaps in place. |
-| Maintain a PR | Checks task state against the PR diff, updates related tasks with the code, and fills in `任务变化` and verification in the PR body. |
+An [Agent Skill](skills/repo-launch-kit/SKILL.md) for setting up a GitHub repository, adopting an existing project, and handing work off through pull requests. It uses plain Markdown and the checks your repository already runs.
 
-## Install in Codex
+## Quick start
 
-Download `repo-launch-kit-v0.1.zip` from the [v0.1 GitHub release](https://github.com/Mike-Animal-Counseling/repo-launch-kit/releases/tag/v0.1). Extract its `repo-launch-kit` folder directly into `.agents/skills/` inside a Git repository, or `~/.agents/skills/` for your user account. The installed file should be `.agents/skills/repo-launch-kit/SKILL.md` at project scope. Open a new Codex session in the target repository. The skill requires Git for repository inspection and the repository's own tooling for checks. Hosted PRs and CI require access to the target GitHub repository.
+1. Download the skill ZIP from the [latest release](https://github.com/Mike-Animal-Counseling/repo-launch-kit/releases/latest).
+2. Extract the `repo-launch-kit` folder into `.agents/skills/` in your target repository. Open a new Codex session there.
+3. Ask the skill to show its proposed setup before applying it.
 
-To try a local checkout before release, build the same ZIP from a committed revision at the repository root. Use a writable destination outside the source tree, or remove the ZIP after installing it.
-
-```sh
-git archive --format=zip --prefix=repo-launch-kit/ -o repo-launch-kit-v0.1.zip HEAD LICENSE SKILL.md agents assets references
+```text
+Use $repo-launch-kit to set up this repository. Show me the proposed changes first.
 ```
 
-Run the same install procedure with the ZIP for an earlier version to roll back. Replace the installed `repo-launch-kit` folder in full so stale files cannot survive. To uninstall, remove that folder from the scope where you installed it and start a new session. Use ordinary Git review and revert for changes the skill applied to a repository.
+See the [installation guide](docs/install.md) for user-wide installation, installing from a source checkout, and uninstalling.
 
-[Codex skill installation docs](https://developers.openai.com/api/reference/cli)
+## When to use it
 
-## Try it
+| Situation | What the skill does |
+| --- | --- |
+| New repository | Adds repository instructions, a task list, and a PR template. Sets up CI after finding a check command it can verify. |
+| Existing repository | Fills gaps while preserving conventions, the current task source, workflow commands, and check names. |
+| PR in progress | Reviews affected tasks against the PR diff, updates their status with the code, and drafts `任务变化` with the relevant entries and verification. |
 
-In a new Git repository, ask “Use `$repo-launch-kit` to set up this repository. Show me the proposed changes first.”
+Use this prompt when adopting an existing project.
 
-In an existing Git repository, ask “Use `$repo-launch-kit` to adopt this repository's existing contributor rules, work list, and CI.”
+```text
+Use $repo-launch-kit to adopt this repository. Keep its contributor instructions, task source, and CI checks.
+```
 
-When a PR is ready, ask “Use `$repo-launch-kit` to check task changes and draft the PR body from this diff.” The PR body lists the affected tasks and how they changed. It says `无任务变化` when the task source stays unchanged.
+Use this prompt when preparing a PR. Include its intended base branch if the repository has more than one.
 
-See the [two-PR handoff example](examples/pull-requests.md) for a partial delivery and a follow-up that closes it. [TODO.md](TODO.md) tracks remaining release work, and [CHANGELOG.md](CHANGELOG.md) lists the release changes. The skill and templates are [MIT licensed](LICENSE).
+```text
+Use $repo-launch-kit to check task changes and draft the PR body against main.
+```
+
+## See it in use
+
+- [Two-PR handoff](examples/pull-requests.md). The first PR left an actionable task. A fresh agent session picked it up from the merged repository and closed it after verification.
+- [npm workspace example](https://github.com/Mike-Animal-Counseling/repo-launch-kit/tree/examples/npm-workspace-ci). The skill generated a CI workflow that ran the repository's workspace checks on GitHub Actions.
+
+## Work on the project
+
+The installable package lives in [`skills/repo-launch-kit/`](skills/repo-launch-kit/). It contains the skill instructions, three Markdown templates, a CI reference, and Codex metadata. Start with [Contributing](CONTRIBUTING.md) to make a change, [Release verification](RELEASING.md) to build and check a package, or the [changelog](CHANGELOG.md) to see what shipped.
+
+[MIT License](LICENSE)

@@ -2,7 +2,7 @@
 
 目标是把现有开仓 Skill 扩展为轻量仓库维护 Skill。核心成果是一套人和 Agent 都能遵循的 PR 交接流程，用普通 Markdown 和已有 GitHub 工作流运行。
 
-起点：现有 Skill 位于当前仓库根目录，包含 `SKILL.md`、`agents/openai.yaml`、PR 模板和 CI 参考。优先从该目录接续开发。如果已经有独立仓库，以确认后的仓库为准。
+`v0.1` 的起点是仓库根目录的 Skill，包含 `SKILL.md`、`agents/openai.yaml`、PR 模板和 CI 参考。当前源码位于 [`skills/repo-launch-kit/`](skills/repo-launch-kit/)。
 
 ## 实施顺序
 
