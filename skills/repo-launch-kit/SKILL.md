@@ -8,7 +8,7 @@ metadata:
 
 # Repo Launch Kit
 
-Choose launch for a new project, adoption for an existing project, or PR maintenance for a change in progress. Read applicable `AGENTS.md` files and resolve the target directory and any enclosing Git root before editing. Inspect Git status when a repository exists. Protect existing files and working-tree changes.
+Choose launch for a new project, adoption for an existing project, or PR maintenance for a change in progress. Read applicable `AGENTS.md` and client-specific repository instructions. Resolve the target directory and any enclosing Git root before editing. Inspect Git status when a repository exists. Protect existing files and working-tree changes.
 
 ## Launch a new project
 
@@ -24,7 +24,7 @@ Choose launch for a new project, adoption for an existing project, or PR mainten
 
 ## Set up the contribution workflow
 
-- Add or extend root `AGENTS.md` using the [instructions template](assets/AGENTS.md). Point to the authoritative task source and project commands. Document working directories and generated-file boundaries where relevant. Keep existing stricter or scoped instructions.
+- Add or extend root `AGENTS.md` using the [instructions template](assets/AGENTS.md). Point to the authoritative task source and project commands. Document working directories and generated-file boundaries where relevant. Keep existing stricter or scoped instructions. If an explicitly selected client needs a separate instruction entry point, follow its documented import mechanism where available and keep shared rules in one place.
 - Use an established `TODO.md`, issue tracker, roadmap, or OpenSpec task file. If there is no task source, start with the [TODO template](assets/TODO.md) and add only substantiated items.
 - Add `.github/pull_request_template.md` from the [PR template](assets/pull_request_template.md) for GitHub repositories that lack a template. Reuse equivalent task-change sections and their prompts in existing templates. Add `## 任务变化` where the section is missing. Preserve other sections and template selection behavior.
 

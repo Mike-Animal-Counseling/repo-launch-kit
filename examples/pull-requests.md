@@ -13,13 +13,13 @@ A fresh agent session started from the merged checkout and used its instructions
 1. When the first PR covers part of a task, ask the skill to update the task source and draft the PR body.
 
    ```text
-   Use $repo-launch-kit to draft this PR's task changes. Record what remains and how to verify it.
+   Use the repo-launch-kit skill to draft this PR's task changes. Record what remains and how to verify it.
    ```
 
 2. After merging the first PR, start a new session on the updated base branch.
 
    ```text
-   Use $repo-launch-kit to pick up the task left in the repository's task list. Run its acceptance checks and draft the follow-up PR.
+   Use the repo-launch-kit skill to pick up the task left in the repository's task list. Run its acceptance checks and draft the follow-up PR.
    ```
 
 3. Check that the follow-up records the verification result beside the completed task and lists that task under `任务变化` in the PR body.

@@ -3,19 +3,19 @@
 [![CI](https://github.com/Mike-Animal-Counseling/repo-launch-kit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Mike-Animal-Counseling/repo-launch-kit/actions/workflows/ci.yml)
 [Latest release](https://github.com/Mike-Animal-Counseling/repo-launch-kit/releases/latest)
 
-An [Agent Skill](skills/repo-launch-kit/SKILL.md) that turns a project brief into a repository you can work in. It sets up the first run and check, the contributor workflow, and the task list a fresh agent session can pick up.
+An [Agent Skill](skills/repo-launch-kit/SKILL.md) that turns a project brief into a repository you can work in. It sets up the first run and check, the contributor workflow, and the task list that a fresh session in your coding agent can pick up.
 
 ## Quick start
 
 1. For the behavior documented here, [install from this source checkout](docs/install.md#install-from-a-source-checkout). The [latest release](https://github.com/Mike-Animal-Counseling/repo-launch-kit/releases/latest) also provides a ZIP for installing a tagged version.
-2. Open a new Codex session in the directory where you want to start the project.
+2. Open a session in your coding agent in the directory where you want to start the project.
 3. Give the skill the project brief and any stack decisions you have made.
 
 ```text
-Use $repo-launch-kit to scaffold a new project in this directory. Show the plan, apply it, and verify what can run. The project will be a Node.js CLI that converts titles to slugs. Use npm.
+Use the repo-launch-kit skill to scaffold a new project in this directory. Show the plan, apply it, and verify what can run. The project will be a Node.js CLI that converts titles to slugs. Use npm.
 ```
 
-See the [installation guide](docs/install.md) for user-wide installation, installing from a source checkout, and uninstalling.
+See the [installation guide](docs/install.md) for client-specific folders, source installs, and manual loading.
 
 ## When to use it
 
@@ -28,13 +28,13 @@ See the [installation guide](docs/install.md) for user-wide installation, instal
 Use this prompt when adopting an existing project.
 
 ```text
-Use $repo-launch-kit to adopt this repository. Keep its contributor instructions, task source, and CI checks.
+Use the repo-launch-kit skill to adopt this repository. Keep its contributor instructions, task source, and CI checks.
 ```
 
 Use this prompt when preparing a PR. Include its intended base branch if the repository has more than one.
 
 ```text
-Use $repo-launch-kit to check task changes and draft the PR body against main.
+Use the repo-launch-kit skill to check task changes and draft the PR body against main.
 ```
 
 ## See it in use
@@ -45,6 +45,6 @@ Use $repo-launch-kit to check task changes and draft the PR body against main.
 
 ## Work on the project
 
-The installable package lives in [`skills/repo-launch-kit/`](skills/repo-launch-kit/). It contains the skill instructions, Markdown templates, project skeleton and CI guides, and Codex metadata. Start with [Contributing](CONTRIBUTING.md) to make a change, [Release verification](RELEASING.md) to build and check a package, or the [changelog](CHANGELOG.md) to see what shipped.
+The installable package lives in [`skills/repo-launch-kit/`](skills/repo-launch-kit/). Its standard entry point is `SKILL.md` and it ships its Markdown guides and templates alongside it. `agents/openai.yaml` provides optional Codex interface metadata. Start with [Contributing](CONTRIBUTING.md) to make a change, [Release verification](RELEASING.md) to build and check a package, or the [changelog](CHANGELOG.md) to see what shipped.
 
 [MIT License](LICENSE)

@@ -27,6 +27,8 @@ Independent agents used the candidate archive in isolated projects. The checks b
 | Nested package | Kept the new files within the requested package. The existing parent repository and its CI stayed intact. |
 | PR draft | Kept the existing English `Task changes` section and its no-change wording. The task source remained untouched. |
 
+GitHub CLI 2.93.0 installed the complete eight-file package at project scope for Codex, Claude Code, GitHub Copilot, Cursor, Gemini CLI, and OpenCode. A pinned GitHub source install also passed. The workflow runs above were in Codex. The other client checks covered installation and file contents. [Install locations and manual loading](docs/install.md)
+
 ## v0.1-rc.1 results
 
 | Scenario | Local result |
