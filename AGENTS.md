@@ -3,8 +3,8 @@
 ## Working in this repository
 
 - Run `actionlint` from the repository root after changing a workflow. The `Package skill` job in `.github/workflows/ci.yml` defines the release archive smoke check. Run its Bash commands against a commit that contains the changes you intend to package.
-- Keep the installable skill at the root. Its release archive contains `SKILL.md`, `agents/`, `assets/`, `references/`, and `LICENSE`. Keep archives and extracted copies out of Git.
-- Keep `assets/pull_request_template.md` and `.github/pull_request_template.md` in sync when changing the default template.
+- Keep the installable package in `skills/repo-launch-kit/`. Its release archive contains the package contents under a top-level `repo-launch-kit/` folder. Keep archives and extracted copies out of Git.
+- Keep `skills/repo-launch-kit/assets/pull_request_template.md` and `.github/pull_request_template.md` in sync. The package `LICENSE` must match the repository license.
 
 ## Task handoff
 

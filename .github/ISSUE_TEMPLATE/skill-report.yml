@@ -1,0 +1,29 @@
+name: Report a skill problem
+description: Report an installation, setup, or PR maintenance problem.
+title: '[Bug] '
+body:
+  - type: input
+    id: environment
+    attributes:
+      label: Skill version and client
+      description: Include the release tag or commit, client version, and operating system.
+    validations:
+      required: true
+  - type: dropdown
+    id: workflow
+    attributes:
+      label: Workflow
+      options:
+        - Install or package the skill
+        - Set up a new repository
+        - Adopt an existing repository
+        - Maintain a pull request
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction and expected result
+      description: Include the prompt, starting repository state, observed result, and expected result. Use synthetic data and omit credentials and machine-specific paths.
+    validations:
+      required: true

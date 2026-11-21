@@ -1,33 +1,50 @@
 # Repo Launch Kit
 
-An installable skill for setting up a GitHub repository, adopting an existing project, and handing off work through ordinary pull requests. It uses Markdown and the checks your repository already runs.
+[![CI](https://github.com/Mike-Animal-Counseling/repo-launch-kit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Mike-Animal-Counseling/repo-launch-kit/actions/workflows/ci.yml)
+[Latest release](https://github.com/Mike-Animal-Counseling/repo-launch-kit/releases/latest)
 
-| Workflow | What it does |
-| --- | --- |
-| Set up a new repo | Adds repository instructions, a small task list, and a PR template. Configures CI when it can verify a check command. |
-| Adopt an existing repo | Reuses the task source, contributor instructions, PR templates, and CI check names. Fills gaps in place. |
-| Maintain a PR | Checks task state against the PR diff, updates related tasks with the code, and fills in `任务变化` and verification in the PR body. |
+An [Agent Skill](skills/repo-launch-kit/SKILL.md) that turns a project brief into a repository you can work in. It sets up the first run and check, the contributor workflow, and the task list that a fresh session in your coding agent can pick up.
 
-## Install in Codex
+## Quick start
 
-Download `repo-launch-kit-v0.1.zip` from the [v0.1 GitHub release](https://github.com/Mike-Animal-Counseling/repo-launch-kit/releases/tag/v0.1). Extract its `repo-launch-kit` folder directly into `.agents/skills/` inside a Git repository, or `~/.agents/skills/` for your user account. The installed file should be `.agents/skills/repo-launch-kit/SKILL.md` at project scope. Open a new Codex session in the target repository. The skill requires Git for repository inspection and the repository's own tooling for checks. Hosted PRs and CI require access to the target GitHub repository.
+1. For the behavior documented here, [install from this source checkout](docs/install.md#install-from-a-source-checkout). The [latest release](https://github.com/Mike-Animal-Counseling/repo-launch-kit/releases/latest) also provides a ZIP for installing a tagged version.
+2. Open a session in your coding agent in the directory where you want to start the project.
+3. Give the skill the project brief and any stack decisions you have made.
 
-To try a local checkout before release, build the same ZIP from a committed revision at the repository root. Use a writable destination outside the source tree, or remove the ZIP after installing it.
-
-```sh
-git archive --format=zip --prefix=repo-launch-kit/ -o repo-launch-kit-v0.1.zip HEAD LICENSE SKILL.md agents assets references
+```text
+Use the repo-launch-kit skill to scaffold a new project in this directory. Show the plan, apply it, and verify what can run. The project will be a Node.js CLI that converts titles to slugs. Use npm.
 ```
 
-Run the same install procedure with the ZIP for an earlier version to roll back. Replace the installed `repo-launch-kit` folder in full so stale files cannot survive. To uninstall, remove that folder from the scope where you installed it and start a new session. Use ordinary Git review and revert for changes the skill applied to a repository.
+See the [installation guide](docs/install.md) for client-specific folders, source installs, and manual loading.
 
-[Codex skill installation docs](https://developers.openai.com/api/reference/cli)
+## When to use it
 
-## Try it
+| Situation | What the skill does |
+| --- | --- |
+| New project | Creates the README, Git ignore rules, repository instructions, task list, and GitHub PR template. With an established stack and project kind, creates a runnable entry point, a behavior check, and CI based on that check. |
+| Existing repository | Fills gaps while preserving conventions, the current task source, workflow commands, and check names. |
+| PR in progress | Reviews affected tasks against the PR diff, updates their status with the code, and drafts `任务变化` with the relevant entries and verification. |
 
-In a new Git repository, ask “Use `$repo-launch-kit` to set up this repository. Show me the proposed changes first.”
+Use this prompt when adopting an existing project.
 
-In an existing Git repository, ask “Use `$repo-launch-kit` to adopt this repository's existing contributor rules, work list, and CI.”
+```text
+Use the repo-launch-kit skill to adopt this repository. Keep its contributor instructions, task source, and CI checks.
+```
 
-When a PR is ready, ask “Use `$repo-launch-kit` to check task changes and draft the PR body from this diff.” The PR body lists the affected tasks and how they changed. It says `无任务变化` when the task source stays unchanged.
+Use this prompt when preparing a PR. Include its intended base branch if the repository has more than one.
 
-See the [two-PR handoff example](examples/pull-requests.md) for a partial delivery and a follow-up that closes it. [TODO.md](TODO.md) tracks remaining release work, and [CHANGELOG.md](CHANGELOG.md) lists the release changes. The skill and templates are [MIT licensed](LICENSE).
+```text
+Use the repo-launch-kit skill to check task changes and draft the PR body against main.
+```
+
+## See it in use
+
+- [New project example](examples/new-project.md). See what the skill sets up for a runnable CLI and for a project whose stack is still open.
+- [Two-PR handoff](examples/pull-requests.md). The first PR left an actionable task. A fresh agent session picked it up from the merged repository and closed it after verification.
+- [npm workspace example](https://github.com/Mike-Animal-Counseling/repo-launch-kit/tree/examples/npm-workspace-ci). The skill generated a CI workflow that ran the repository's workspace checks on GitHub Actions.
+
+## Work on the project
+
+The installable package lives in [`skills/repo-launch-kit/`](skills/repo-launch-kit/). Its standard entry point is `SKILL.md` and it ships its Markdown guides and templates alongside it. `agents/openai.yaml` provides optional Codex interface metadata. Start with [Contributing](CONTRIBUTING.md) to make a change, [Release verification](RELEASING.md) to build and check a package, or the [changelog](CHANGELOG.md) to see what shipped.
+
+[MIT License](LICENSE)
